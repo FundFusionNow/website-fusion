@@ -1,11 +1,28 @@
-application: some_name
+application: fund-fusion-now
 version: 1
 runtime: python27
 api_version: 1
 threadsafe: yes
 
 handlers:
-- url: .*
+- url: /
+  script: main.app
+
+#map the favicon to its location
+- url: /favicon.ico
+  static_files: /static/img/favicon.ico
+  upload: /static/img/favicon.ico
+
+- url: /static/img
+  static_dir: static/img
+
+- url: /static/css
+  static_dir: static/css
+
+- url: /static/js
+  static_dir: static/js
+
+- url: /.*
   script: main.app
 
 libraries:
@@ -13,3 +30,6 @@ libraries:
   version: "2.6"
 - name: markupsafe
   version: "0.15"
+
+skip_files:
+- ^ignore*

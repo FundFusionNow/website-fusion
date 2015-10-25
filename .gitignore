@@ -1,2 +1,7 @@
+#Python files
 *.pyc
+*.egg
+*.pyo
 
+#
+ignore/*
